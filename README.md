@@ -10,7 +10,7 @@ _Remind Me_ ist eine minimalistische Reminder-App, mit der du individuelle Gewoh
 - 💡 **Übersichtliches Dashboard:** Zeigt Fortschritt und offene Erinnerungen für den Tag.
 - 🧘‍♂️ **Modernes minimalistisches Design:** Klar, ruhig und intuitiv – Fokus auf das Wesentliche.
 
-⸻
+
 
 ## 📸 Screenshots
 
@@ -30,7 +30,7 @@ _Remind Me_ ist eine minimalistische Reminder-App, mit der du individuelle Gewoh
 
 ![Settings](/mnt/data/iPhone%2014%20&%2015%20Pro%20-%201.png)
 
-⸻
+
 
 ## 🛠️ Tech Stack
 
@@ -39,7 +39,7 @@ _Remind Me_ ist eine minimalistische Reminder-App, mit der du individuelle Gewoh
 - **Benachrichtigungen:** Expo Notifications
 - **UI Design:** Custom, inspiriert von Apple Health & Things 3
 
-⸻
+
 
 ## 📦 Installation
 
@@ -50,7 +50,7 @@ npm install
 npx expo start
 ```
 
-⸻
+
 
 ## ✨ Ideen für die Zukunft
 
@@ -59,13 +59,13 @@ npx expo start
 - 🔃 iCloud/Google Sync  
 - 📈 Statistiken über Wochen/Monate
 
-⸻
+
 
 ## 📄 Lizenz
 
 MIT License – free for personal and commercial use.
 
-⸻
+
 
 Made with ❤️ by [Dein Name]  
 Version 1.0.0
