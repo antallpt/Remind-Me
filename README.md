@@ -27,7 +27,7 @@ _Remind Me_ ist eine minimalistische Reminder-App, mit der du individuelle Gewoh
 
 <br/>
 
-<table width="100%">
+<table align="center">
   <tr>
     <th align="center">Reminder-Optionen</th>
     <th align="center">Reminder bearbeiten</th>
