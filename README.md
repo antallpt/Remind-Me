@@ -14,21 +14,37 @@ _Remind Me_ ist eine minimalistische Reminder-App, mit der du individuelle Gewoh
 
 ## 📸 Screenshots
 
-### 🏠 Dashboard (Tagesübersicht)
+<table align="center">
+  <tr>
+    <th align="center">Hauptseite</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/screens/iPhone%2014%20&%2015%20Pro%20-%201.png" alt="Main Page" width="300"/>
+    </td>
+  </tr>
+</table>
 
-![Dashboard](/mnt/data/iPhone%2014%20&%2015%20Pro%20-%203.png)
+<br/>
 
-### 📅 Reminder-Erstellung
-
-![Create Reminder](/mnt/data/iPhone%2014%20&%2015%20Pro%20-%204.png)
-
-### ✅ Fortschritt & Tracking
-
-![Progress View](/mnt/data/iPhone%2014%20&%2015%20Pro%20-%208.png)
-
-### ⚙️ Einstellungen
-
-![Settings](/mnt/data/iPhone%2014%20&%2015%20Pro%20-%201.png)
+<table align="center">
+  <tr>
+    <th align="center">Reminder-Optionen</th>
+    <th align="center">Reminder bearbeiten</th>
+    <th align="center">Einstellungen</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/screens/iPhone%2014%20&%2015%20Pro%20-%203.png" alt="Options for Reminder" width="200"/>
+    </td>
+    <td align="center">
+      <img src="assets/screens/iPhone%2014%20&%2015%20Pro%20-%204.png" alt="Edit Reminder" width="200"/>
+    </td>
+    <td align="center">
+      <img src="assets/screens/iPhone%2014%20&%2015%20Pro%20-%208.png" alt="Settings" width="200"/>
+    </td>
+  </tr>
+</table>
 
 
 
