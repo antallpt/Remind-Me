@@ -15,8 +15,8 @@ _Remind Me_ ist eine minimalistische Reminder-App, mit der du individuelle Gewoh
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="assets/screens/iPhone%2014%20&%2015%20Pro%20-%201.png" alt="Main Page" width="300"/><br/>
-  <b>Hauptseite</b>
+  <b>Hauptseite</b><br/>
+  <img src="assets/screens/iPhone%2014%20&%2015%20Pro%20-%201.png" alt="Main Page" width="300"/>
 </div>
 
 <br/>
@@ -29,13 +29,13 @@ _Remind Me_ ist eine minimalistische Reminder-App, mit der du individuelle Gewoh
   </tr>
   <tr>
     <td align="center">
-      <img src="assets/screens/iPhone%2014%20&%2015%20Pro%20-%203.png" alt="Options for Reminder" width="120"/>
+      <img src="assets/screens/iPhone%2014%20&%2015%20Pro%20-%203.png" alt="Options for Reminder" width="180"/>
     </td>
     <td align="center">
-      <img src="assets/screens/iPhone%2014%20&%2015%20Pro%20-%204.png" alt="Edit Reminder" width="120"/>
+      <img src="assets/screens/iPhone%2014%20&%2015%20Pro%20-%204.png" alt="Edit Reminder" width="180"/>
     </td>
     <td align="center">
-      <img src="assets/screens/iPhone%2014%20&%2015%20Pro%20-%208.png" alt="Settings" width="120"/>
+      <img src="assets/screens/iPhone%2014%20&%2015%20Pro%20-%208.png" alt="Settings" width="180"/>
     </td>
   </tr>
 </table>
