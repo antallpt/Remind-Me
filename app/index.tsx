@@ -1,6 +1,7 @@
+import AllHabitsPage from "@/components/AllHabitsPage";
 import Header from "@/components/Header";
-import RemindersList from "@/components/RemindersList";
 import Tabs from "@/components/Tabs";
+import TodayPage from "@/components/TodayPage";
 import { useRef, useState } from "react";
 import { Animated, Dimensions, ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -39,10 +40,10 @@ export default function Index() {
         style={styles.pager}
       >
         <View style={{ width: SCREEN_WIDTH }}>
-          <RemindersList type="today" />
+          <TodayPage />
         </View>
         <View style={{ width: SCREEN_WIDTH }}>
-          <RemindersList type="all" />
+          <AllHabitsPage />
         </View>
       </Animated.ScrollView>
     </SafeAreaView>
