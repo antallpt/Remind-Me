@@ -63,9 +63,9 @@ npx expo start
 
 ## 📄 Lizenz
 
-MIT License – free for personal and commercial use.
+MIT License – free for personal use.
 
 
 
-Made with ❤️ by [Dein Name]  
+Made with ❤️ by [Antal]  
 Version 1.0.0
