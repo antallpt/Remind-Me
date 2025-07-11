@@ -38,7 +38,8 @@
     "react-native-screens": "~4.11.1",
     "react-native-web": "~0.20.0",
     "react-native-webview": "13.13.5",
-    "sweet-sfsymbols": "^0.7.2"
+    "sweet-sfsymbols": "^0.7.2",
+    "react-native-pager-view": "6.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
