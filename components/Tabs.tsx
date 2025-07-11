@@ -41,11 +41,13 @@ export default function Tabs({ activeTab, onTabChange, scrollX, screenWidth }: T
 const styles = StyleSheet.create({
     tabsContainer: {
         flexDirection: 'row',
-        marginVertical: 31
     },
     tabText: {
         color: '#D6D6D6',
         fontWeight: '700',
-        fontSize: 16
+        fontSize: 16,
+        paddingTop: 31,
+        paddingBottom: 20
+
     }
 });

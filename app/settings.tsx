@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        paddingHorizontal: 21
+        paddingHorizontal: 21,
+        paddingTop: 14
     },
     hozContainer: {
         flexDirection: 'row',
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         height: '100%',
     },
     header: {

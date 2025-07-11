@@ -21,7 +21,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RemindMe/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RemindMe/Info.plist; sourceTree = "<group>"; };
 		26277D4ADC05492F6BF89326 /* libPods-RemindMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RemindMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		355D811127AB56C4555407AC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = RemindMe/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		355D811127AB56C4555407AC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = RemindMe/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		91FD45BA3F4EEDA1FDA125B3 /* Pods-RemindMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemindMe.debug.xcconfig"; path = "Target Support Files/Pods-RemindMe/Pods-RemindMe.debug.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = RemindMe/SplashScreen.storyboard; sourceTree = "<group>"; };
 		B1827AD2970A63A94CCB4765 /* Pods-RemindMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemindMe.release.xcconfig"; path = "Target Support Files/Pods-RemindMe/Pods-RemindMe.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,7 +81,6 @@
 				91FD45BA3F4EEDA1FDA125B3 /* Pods-RemindMe.debug.xcconfig */,
 				B1827AD2970A63A94CCB4765 /* Pods-RemindMe.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -340,6 +339,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RemindMe/RemindMe.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KB3C4362HQ;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -376,6 +376,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RemindMe/RemindMe.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KB3C4362HQ;
 				INFOPLIST_FILE = RemindMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (

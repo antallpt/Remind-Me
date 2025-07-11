@@ -58,6 +58,7 @@ export default function Header() {
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop: 14,
         paddingHorizontal: 21,
     },
     hozContainer: {
