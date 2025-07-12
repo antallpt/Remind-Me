@@ -1,7 +1,8 @@
 import { triggerMediumHaptic } from '@/utils/haptics';
-import React, { useRef } from 'react';
-import { Alert, Animated, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
+import Animated, { Easing, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import SFSymbol from 'sweet-sfsymbols';
 import ProgressBar from './ProgressBar';
 
@@ -12,48 +13,42 @@ interface ReminderListItemProps {
 }
 
 const ReminderListItem = ({ id, title, onDelete }: ReminderListItemProps) => {
-    const translateX = useRef(new Animated.Value(0)).current;
-    const opacity = useRef(new Animated.Value(1)).current;
-    const swipeableRef = useRef<Swipeable>(null);
+    const opacity = useSharedValue(1);
+    const scale = useSharedValue(1);
+    const height = useSharedValue(90); // Only the card height
+    const margin = useSharedValue(7); // Animate marginVertical
 
     const handleDelete = () => {
-        Alert.alert(
-            'Delete Reminder?',
-            "This reminder will be deleted immediately. You can't undo this action.",
-            [
-                { text: 'Cancel', style: 'cancel' },
-                {
-                    text: 'Delete',
-                    style: 'destructive',
-                    onPress: () => {
-                        triggerMediumHaptic();
-                        Animated.parallel([
-                            Animated.timing(translateX, {
-                                toValue: -300, // slide far left
-                                duration: 250,
-                                useNativeDriver: true,
-                            }),
-                            Animated.timing(opacity, {
-                                toValue: 0,
-                                duration: 250,
-                                useNativeDriver: true,
-                            }),
-                        ]).start(() => {
-                            onDelete && onDelete();
-                        });
-                    },
-                },
-            ]
-        );
+        triggerMediumHaptic();
+        opacity.value = withTiming(0, { duration: 250, easing: Easing.inOut(Easing.ease) });
+        scale.value = withTiming(0.8, { duration: 250, easing: Easing.inOut(Easing.ease) });
+        height.value = withTiming(0, { duration: 250, easing: Easing.inOut(Easing.ease) }, (finished) => {
+            if (finished) {
+                runOnJS(onDelete)();
+            }
+        });
+        margin.value = withTiming(0, { duration: 250, easing: Easing.inOut(Easing.ease) });
     };
+
+    const animatedStyle = useAnimatedStyle(() => ({
+        opacity: opacity.value,
+        transform: [{ scale: scale.value }],
+        height: height.value,
+        marginVertical: margin.value,
+        // overflow: 'hidden', // Remove this line to keep shadow
+    }));
 
     const renderRightActions = () => (
         <Animated.View
-            style={{
-                flexDirection: 'row',
-                opacity,
-                transform: [{ translateX }],
-            }}
+            style={[
+                {
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: 90, // Remove fixed height
+                },
+                animatedStyle, // Animate height for pills too
+            ]}
         >
             <TouchableOpacity style={styles.optionsCard}>
                 <SFSymbol name='ellipsis' size={20} colors={['#000']} />
@@ -65,35 +60,28 @@ const ReminderListItem = ({ id, title, onDelete }: ReminderListItemProps) => {
     );
 
     return (
-        <Swipeable ref={swipeableRef}
+        <Swipeable
             renderRightActions={renderRightActions}
             onSwipeableWillOpen={triggerMediumHaptic}
             onSwipeableWillClose={triggerMediumHaptic}>
-            <Animated.View
-                style={{
-                    transform: [{ translateX }],
-                    opacity,
-                }}
-            >
-                <View style={styles.container}>
-                    <View style={styles.subContainer}>
-                        <View style={styles.headerContainer}>
-                            <View style={{ flexDirection: 'row', gap: 14, alignItems: 'flex-start' }}>
-                                <View style={styles.iconContainer}>
-                                    <SFSymbol name='drop.fill' size={12} />
-                                </View>
-                                <View style={styles.titleContainer}>
-                                    <Text style={styles.title}>{title}</Text>
-                                    <Text style={styles.subtitle}>3 times a day • 8AM - 8PM</Text>
-                                </View>
+            <Animated.View style={[styles.container, animatedStyle]}>
+                <View style={styles.subContainer}>
+                    <View style={styles.headerContainer}>
+                        <View style={{ flexDirection: 'row', gap: 14, alignItems: 'flex-start' }}>
+                            <View style={styles.iconContainer}>
+                                <SFSymbol name='drop.fill' size={12} />
                             </View>
-                            <View style={{ flexDirection: 'row', gap: 9, alignItems: 'center' }}>
-                                <Text style={styles.counterText}>3/8</Text>
-                                <View style={styles.circle} />
+                            <View style={styles.titleContainer}>
+                                <Text style={styles.title}>{title}</Text>
+                                <Text style={styles.subtitle}>3 times a day • 8AM - 8PM</Text>
                             </View>
                         </View>
-                        <ProgressBar progress={3 / 8} />
+                        <View style={{ flexDirection: 'row', gap: 9, alignItems: 'center' }}>
+                            <Text style={styles.counterText}>3/8</Text>
+                            <View style={styles.circle} />
+                        </View>
                     </View>
+                    <ProgressBar progress={3 / 8} />
                 </View>
             </Animated.View>
         </Swipeable>
@@ -106,8 +94,8 @@ const styles = StyleSheet.create({
     container: {
         marginLeft: 21,
         marginRight: 8,
-        marginVertical: 14,
-        height: 80,
+        // marginVertical: 7, // Now animated
+        height: 90,
         backgroundColor: '#fff',
         borderRadius: 20,
         alignItems: 'flex-start',
@@ -116,14 +104,13 @@ const styles = StyleSheet.create({
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.1,
-        shadowRadius: 6.3,
+        shadowRadius: 5,
         elevation: 4,
         // border
         borderWidth: 0.2,
         borderColor: 'rgba(214,214,214,0.5)', // #D6D6D6 at 50% opacity
     },
     subContainer: {
-        height: '100%',
         marginHorizontal: 16,
         paddingVertical: 12.73,
         flexDirection: 'column',
@@ -137,11 +124,11 @@ const styles = StyleSheet.create({
     },
     title: {
         fontWeight: '600',
-        fontSize: 14
+        fontSize: 16
     },
     subtitle: {
         fontWeight: '600',
-        fontSize: 10,
+        fontSize: 12,
         color: '#D6D6D6'
     },
     iconContainer: {
@@ -157,21 +144,20 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     counterText: {
-        fontSize: 12,
+        fontSize: 14,
         fontWeight: '600',
         color: '#747474'
     },
     circle: {
-        width: 16,
-        height: 16,
-        borderRadius: 8,
+        width: 18,
+        height: 18,
+        borderRadius: 9,
         borderWidth: 1,
         borderColor: '#ECEDEE'
     },
     deleteCard: {
-        marginTop: 14,
         marginRight: 8,
-        height: 80,
+        height: 90,
         width: 52,
         backgroundColor: '#FF0000',
         borderRadius: 20,
@@ -179,9 +165,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     optionsCard: {
-        marginTop: 14,
         marginRight: 8,
-        height: 80,
+        height: 90,
         width: 52,
         backgroundColor: '#ECEDEE',
         borderRadius: 20,

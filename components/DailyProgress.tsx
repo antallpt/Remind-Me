@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     container: {
         marginTop: 11,
         marginHorizontal: 21,
-        height: 110,
+        height: 120,
         backgroundColor: '#fff',
         borderRadius: 20,
         alignItems: 'flex-start',
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.1,
         shadowRadius: 6.3,
-        elevation: 4,
+        elevation: 5,
         // border
         borderWidth: 0.2,
         borderColor: 'rgba(214,214,214,0.5)', // #D6D6D6 at 50% opacity
@@ -65,15 +65,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 17
+        marginBottom: 20
     },
     title: {
         fontWeight: '600',
-        fontSize: 14
+        fontSize: 16
     },
     subtitle: {
         fontWeight: '600',
-        fontSize: 12,
+        fontSize: 14,
         color: '#747474'
     },
     statsContainer: {
@@ -87,12 +87,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     statsTitle: {
-        fontSize: 12,
+        fontSize: 14,
         fontWeight: '600'
     },
     statsSubTitle: {
         fontWeight: '600',
-        fontSize: 10,
+        fontSize: 12,
         color: '#D6D6D6'
     }
 })

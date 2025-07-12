@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.1,
         shadowRadius: 6.3,
-        elevation: 4,
+        elevation: 5,
         // border
         borderWidth: 0.2,
         borderColor: 'rgba(214,214,214,0.5)', // #D6D6D6 at 50% opacity

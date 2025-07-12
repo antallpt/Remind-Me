@@ -1,37 +1,39 @@
 import React, { useState } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { LayoutAnimation, Platform, StyleSheet, UIManager, View } from 'react-native';
 import DailyProgress from './DailyProgress';
-import ReminderListItem from './ReminderListItem';
+import { RemindersListSection } from './RemindersListSection';
 
 const initialReminders = [
-    { id: '1', title: 'Drink Water' }
+    { id: '1', title: 'Drink Water' },
+    { id: '2', title: 'Drink Water' },
+    { id: '3', title: 'Drink Water' },
+    { id: '4', title: 'Drink Water' }
     // ...more reminders
 ];
+
+// Enable LayoutAnimation on Android
+if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
+
 
 const TodayPage = () => {
     const [reminders, setReminders] = useState(initialReminders);
 
     const handleDelete = (id: string) => {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
         setReminders(reminders => reminders.filter(r => r.id !== id));
     };
 
     return (
         <View style={styles.container}>
             <DailyProgress />
-            <View style={{ gap: 3 }}>
-                <Text style={styles.title}>Today's Reminders</Text>
-                <FlatList
-                    data={reminders}
-                    keyExtractor={item => item.id}
-                    renderItem={({ item }) => (
-                        <ReminderListItem
-                            {...item}
-                            onDelete={() => handleDelete(item.id)}
-                        />
-                    )}
-                    contentContainerStyle={{ gap: 0, marginRight: 13 }}
-                />
-            </View>
+            <RemindersListSection
+                title="Today's Reminders"
+                reminders={reminders}
+                onDelete={handleDelete}
+            />
         </View>
     )
 }
@@ -43,9 +45,5 @@ const styles = StyleSheet.create({
         flex: 1,
         gap: 31
     },
-    title: {
-        marginLeft: 21,
-        fontWeight: '600',
-        fontSize: 14
-    },
+
 })
