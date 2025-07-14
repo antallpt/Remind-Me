@@ -29,7 +29,7 @@ const AboutPage = () => {
                         {' '}and we’ll be happy to help!
                     </Text>
                 </View>
-                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', paddingTop: 10 }}>
                     <View style={{ gap: 9 }}>
                         <Text style={{ color: '#B4B4B9', fontSize: 10 }}>Version 1.0.0</Text>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 3 }}>
