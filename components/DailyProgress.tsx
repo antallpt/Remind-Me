@@ -1,29 +1,35 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import ProgressBar from './ProgressBar'
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import ProgressBar from './ProgressBar';
 
-const DailyProgress = () => {
+interface DailyProgressProps {
+    total: number;
+    completed: number;
+    remaining: number;
+}
+
+const DailyProgress = ({ total, completed, remaining }: DailyProgressProps) => {
     return (
         <View style={styles.container}>
             <View style={styles.subContainer}>
                 <View>
                     <View style={styles.headerContainer}>
                         <Text style={styles.title}>Daily Progress</Text>
-                        <Text style={styles.subtitle}>3/8 completed</Text>
+                        <Text style={styles.subtitle}>{completed}/{total} completed</Text>
                     </View>
-                    <ProgressBar progress={3 / 8} />
+                    <ProgressBar progress={total > 0 ? completed / total : 0} />
                 </View>
                 <View style={styles.statsContainer}>
                     <View style={styles.statsSub}>
-                        <Text style={styles.statsTitle}>3</Text>
+                        <Text style={styles.statsTitle}>{completed}</Text>
                         <Text style={styles.statsSubTitle}>Completed</Text>
                     </View>
                     <View style={styles.statsSub}>
-                        <Text style={styles.statsTitle}>5</Text>
+                        <Text style={styles.statsTitle}>{remaining}</Text>
                         <Text style={styles.statsSubTitle}>Remaining</Text>
                     </View>
                     <View style={styles.statsSub}>
-                        <Text style={styles.statsTitle}>8</Text>
+                        <Text style={styles.statsTitle}>{total}</Text>
                         <Text style={styles.statsSubTitle}>Total</Text>
                     </View>
                 </View>
@@ -43,6 +49,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
+        marginBottom: 30,
         // shadow
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 0 },

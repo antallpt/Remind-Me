@@ -93,8 +93,7 @@ const Settings = () => {
     const [pageIndex, setPageIndex] = useState(0);
     const mainX = useRef(new Animated.Value(0)).current;
     const subX = useRef(new Animated.Value(SCREEN_WIDTH)).current;
-    const mainOpacity = useRef(new Animated.Value(1)).current;
-    const subOpacity = useRef(new Animated.Value(0)).current;
+    // Remove mainOpacity and subOpacity
     const [subPageIdx, setSubPageIdx] = useState(1); // Track which subpage to show
 
     const slideToSubPage = (idx: number) => {
@@ -112,16 +111,7 @@ const Settings = () => {
                 easing: Easing.out(Easing.cubic),
                 useNativeDriver: true,
             }),
-            Animated.timing(mainOpacity, {
-                toValue: 0.5,
-                duration: 320,
-                useNativeDriver: true,
-            }),
-            Animated.timing(subOpacity, {
-                toValue: 1,
-                duration: 320,
-                useNativeDriver: true,
-            }),
+            // Remove opacity animations
         ]).start(() => setPageIndex(idx));
     };
 
@@ -139,16 +129,7 @@ const Settings = () => {
                 easing: Easing.out(Easing.cubic),
                 useNativeDriver: true,
             }),
-            Animated.timing(mainOpacity, {
-                toValue: 1,
-                duration: 320,
-                useNativeDriver: true,
-            }),
-            Animated.timing(subOpacity, {
-                toValue: 0,
-                duration: 320,
-                useNativeDriver: true,
-            }),
+            // Remove opacity animations
         ]).start(() => setPageIndex(0));
     };
 
@@ -202,7 +183,7 @@ const Settings = () => {
                 <Animated.View
                     style={[
                         styles.animatedPage,
-                        { transform: [{ translateX: mainX }], opacity: mainOpacity },
+                        { transform: [{ translateX: mainX }] },
                         { zIndex: pageIndex === 0 ? 2 : 1 }
                     ]}
                     pointerEvents={pageIndex === 0 ? 'auto' : 'none'}
@@ -212,7 +193,7 @@ const Settings = () => {
                 <Animated.View
                     style={[
                         styles.animatedPage,
-                        { transform: [{ translateX: subX }], opacity: subOpacity },
+                        { transform: [{ translateX: subX }] },
                         { zIndex: pageIndex === 0 ? 1 : 2 }
                     ]}
                     pointerEvents={pageIndex === 0 ? 'none' : 'auto'}
